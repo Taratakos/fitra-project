@@ -1,8 +1,34 @@
-<div class="{% if section.settings.include_margins %}page-width{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-  {%- for block in section.blocks -%}
-    {% render block %}
-  {%- endfor -%}
-</div>
+{% comment %} <div class="{% if section.settings.include_margins %}page-width{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                                                  {%- for block in section.blocks -%}
+                                                    {% render block %}
+                                                  {%- endfor -%}
+</div> {% endcomment %}
+
+{% if section.blocks.size > 0 %}
+
+  <div class="slider-product-proposal">
+    <div class="page-width slider-product-proposal__container">
+      <div class="slider-product-proposal__content">
+        <h2 class="slider-product-proposal__title">Product title</h2>
+        <div class="slider-product-proposal__subtitle">Product subtitle</div>
+      </div>
+      <div class="slider-product-proposal__slider">
+        <div class="slider-product-proposal__slider-list">
+          {% for block in section.blocks %}
+            {% if block.settings.proposal_product != blank %}
+              {% assign product = block.settings.proposal_product %}
+              <div class="slider-product-proposal__slider-item">
+                <h4 class="slider-item__title">{{ product.title }}</h4>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endif %}
+
 
 {{ 'slick.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'jquery-3.7.1.js' | asset_url }}" defer="defer"></script>
@@ -11,10 +37,16 @@
 <script>
   // дозволяє запускати скрипти тоді, коли загрузився документ
   document.addEventListener("DOMContentLoaded", function() {
-  // code...
-  console.log('prod-init');
+  $('#shopify-section-{{section.id}} .slider-product-proposal__slider-list').slick();
   });
 </script>
+
+{% comment %} Перевіримо чи взагалі працює наш сайт {% endcomment %}
+<style>
+  body {
+    background-color: azure !important;
+  }
+</style>
 
 {% schema %}
   {
