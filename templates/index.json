@@ -1,5 +1,125 @@
 {
   "sections": {
+    "section_slider_products_XifTmM": {
+      "type": "section-slider-products",
+      "blocks": {
+        "product_xW7BEP": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "striped-silk-blouse"
+          }
+        },
+        "product_b4dLep": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "striped-skirt-and-top"
+          }
+        },
+        "product_E7Dt9a": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "led-high-tops"
+          }
+        },
+        "product_e8aXc6": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "white-cotton-shirt"
+          }
+        },
+        "product_CbW4JK": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "dark-denim-top"
+          }
+        }
+      },
+      "block_order": [
+        "product_xW7BEP",
+        "product_b4dLep",
+        "product_E7Dt9a",
+        "product_e8aXc6",
+        "product_CbW4JK"
+      ],
+      "settings": {
+        "slider_items": 4,
+        "include_margins": true
+      }
+    },
+    "section_slider_products_aX66Gm": {
+      "type": "section-slider-products",
+      "blocks": {
+        "product_mg4EdJ": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "blue-silk-tuxedo"
+          }
+        },
+        "product_xBRjjy": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "black-leather-bag"
+          }
+        },
+        "product_Ufrewx": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "chequered-red-shirt"
+          }
+        },
+        "product_yCnW7V": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "classic-leather-jacket"
+          }
+        },
+        "product_xkwzYQ": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "classic-varsity-top"
+          }
+        },
+        "product_hPnbHT": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "dark-denim-top"
+          }
+        },
+        "product_PWLMMY": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "longsleeve-cotton-top"
+          }
+        },
+        "product_MBd6ze": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "navy-sport-jacket"
+          }
+        },
+        "product_khTRhx": {
+          "type": "product",
+          "settings": {
+            "proposal_product": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_mg4EdJ",
+        "product_xBRjjy",
+        "product_Ufrewx",
+        "product_yCnW7V",
+        "product_xkwzYQ",
+        "product_hPnbHT",
+        "product_PWLMMY",
+        "product_MBd6ze",
+        "product_khTRhx"
+      ],
+      "settings": {
+        "slider_items": 2,
+        "include_margins": true
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -66,57 +186,12 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
-    },
-    "section_slider_products_XifTmM": {
-      "type": "section-slider-products",
-      "blocks": {
-        "product_xW7BEP": {
-          "type": "product",
-          "settings": {
-            "proposal_product": "striped-silk-blouse"
-          }
-        },
-        "product_b4dLep": {
-          "type": "product",
-          "settings": {
-            "proposal_product": "striped-skirt-and-top"
-          }
-        },
-        "product_E7Dt9a": {
-          "type": "product",
-          "settings": {
-            "proposal_product": "led-high-tops"
-          }
-        },
-        "product_e8aXc6": {
-          "type": "product",
-          "settings": {
-            "proposal_product": "white-cotton-shirt"
-          }
-        },
-        "product_CbW4JK": {
-          "type": "product",
-          "settings": {
-            "proposal_product": "dark-denim-top"
-          }
-        }
-      },
-      "block_order": [
-        "product_xW7BEP",
-        "product_b4dLep",
-        "product_E7Dt9a",
-        "product_e8aXc6",
-        "product_CbW4JK"
-      ],
-      "settings": {
-        "slider_items": 4,
-        "include_margins": true
-      }
     }
   },
   "order": [
+    "section_slider_products_XifTmM",
+    "section_slider_products_aX66Gm",
     "image_banner",
-    "featured_collection",
-    "section_slider_products_XifTmM"
+    "featured_collection"
   ]
 }
