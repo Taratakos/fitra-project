@@ -8,6 +8,14 @@
 <script src="{{ 'jquery-3.7.1.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
 
+<script>
+  // дозволяє запускати скрипти тоді, коли загрузився документ
+  document.addEventListener("DOMContentLoaded", function() {
+  // code...
+  console.log('prod-init');
+  });
+</script>
+
 {% schema %}
   {
     "name": "Slider Products",
@@ -24,7 +32,14 @@
     "blocks": [
       {
         "name": "Proposal product",
-        "type": "product"
+        "type": "product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "proposal_product",
+            "label": "My proposal Product"
+          }
+        ]
       }
     ],
     "presets": [
