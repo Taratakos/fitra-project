@@ -1,7 +1,7 @@
 {% comment %} <div class="{% if section.settings.include_margins %}page-width{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-                                                  {%- for block in section.blocks -%}
-                                                    {% render block %}
-                                                  {%- endfor -%}
+                                                                                {%- for block in section.blocks -%}
+                                                                                  {% render block %}
+                                                                                {%- endfor -%}
 </div> {% endcomment %}
 
 {% if section.blocks.size > 0 %}
@@ -37,7 +37,11 @@
 <script>
   // дозволяє запускати скрипти тоді, коли загрузився документ
   document.addEventListener("DOMContentLoaded", function() {
-  $('#shopify-section-{{section.id}} .slider-product-proposal__slider-list').slick();
+  $('#shopify-section-{{section.id}} .slider-product-proposal__slider-list').slick({
+  infinite: true,
+  slidesToShow: {{ section.settings.slider_items }},
+  slidesToScroll: 3
+  });
   });
 </script>
 
@@ -55,6 +59,14 @@
     "class": "section",
     "settings": [
       {
+        "type": "range",
+        "id": "slider_items",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "label": "Items per page",
+        "default": 2
+      }, {
         "type": "checkbox",
         "id": "include_margins",
         "default": true,
