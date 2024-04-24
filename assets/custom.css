@@ -1,0 +1,133 @@
+body {
+  /* background-color: orangered !important; */
+}
+
+/* Slick slider Start */
+.slick-slider {}
+
+.slick-slider .slick-arrow {
+  position: absolute;
+  display: block;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50px;
+  width: 50px;
+  font-size: 0;
+  line-height: 50px;
+  overflow: hidden;
+  background-color: orange;
+  color: green;
+  z-index: 1;
+  border: none;
+  outline: none;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: 0.3s linear all;
+  opacity: 1;
+}
+
+.slick-slider .slick-arrow:hover {
+  opacity: 0.8;
+}
+
+.slick-slider .slick-arrow:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  line-height: inherit;
+  color: currentColor;
+  font-weight: bold;
+}
+
+.slick-slider .slick-prev {
+  left: -25px;
+}
+
+.slick-slider .slick-prev:before {
+  content: '<';
+}
+
+.slick-slider .slick-next {
+  right: -25px;
+}
+
+.slick-slider .slick-next:before {
+  content: '>';
+}
+
+
+/* Slick slider End */
+
+.slider-product-proposal {
+  padding: 50px 0;
+}
+
+
+.slider-product-proposal__container {}
+
+.slider-product-proposal__content {}
+
+.slider-product-proposal__title {
+  display: block;
+  width: 100%;
+  font-size: 52px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.slider-product-proposal__subtitle {
+  display: block;
+  width: 100%;
+  font-size: 24px;
+  line-height: 1.3;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.slider-product-proposal__slider {}
+
+.slider-product-proposal__slider-list {}
+
+.slider-product-proposal__slider-item {
+  max-width: 400px;
+}
+
+a.slider-item__link {
+  display: block;
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.slider-item__image {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  transition: 0.3s linear transform;
+}
+
+a.slider-item__link:hover .slider-item__image {
+  transform: scale(1.1);
+}
+
+.slider-item__picture {
+  height: inherit;
+  width: inherit;
+  object-fit: contain;
+}
+
+.slider-item__title {}
+
+.slider-item__content {}
+
+.slider-item__price {}
+
+@media screen and (max-width:500px) {
+  .slider-product-proposal__subtitle {
+    color: red;
+  }
+}

@@ -1,9 +1,3 @@
-{% comment %} <div class="{% if section.settings.include_margins %}page-width{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-                                                                                {%- for block in section.blocks -%}
-                                                                                  {% render block %}
-                                                                                {%- endfor -%}
-</div> {% endcomment %}
-
 {% if section.blocks.size > 0 %}
 
   <div class="slider-product-proposal">
@@ -18,7 +12,25 @@
             {% if block.settings.proposal_product != blank %}
               {% assign product = block.settings.proposal_product %}
               <div class="slider-product-proposal__slider-item">
-                <h4 class="slider-item__title">{{ product.title }}</h4>
+                <a class="slider-item__link" href="{{ product.url }}">
+                  <div class="slider-item__image">
+                    <img
+                      class="slider-item__picture"
+                      src="{{ product.featured_image | img_url: '200x' }}"
+                      alt="{{ product.featured_image.alt |  default: product.title }}"
+                      loading="lazy">
+                  </div>
+                  <h4 class="slider-item__title">{{ product.title }}</h4>
+                  {% if product.content != blank %}
+                    <div class="slider-item__content">
+                      {{ product.content | truncate: 50, "..." }}
+                    </div>
+                  {% endif %}
+                  <div class="slider-item__price">
+                    {{ product.price | money_with_currency }}
+                  </div>
+                </a>
+
               </div>
             {% endif %}
           {% endfor %}
@@ -40,56 +52,84 @@
   $('#shopify-section-{{section.id}} .slider-product-proposal__slider-list').slick({
   infinite: true,
   slidesToShow: {{ section.settings.slider_items }},
-  slidesToScroll: 3
+  slidesToScroll: 2,
+  speed: 1000,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: {{ section.settings.slider_items_tab}},
+        slidesToScroll: {{ section.settings.slider_items_tab}}
+      }
+    },
+    {
+      breakpoint: 576,
+      settings: {
+        slidesToShow: {{ section.settings.slider_items_mob }},
+        slidesToScroll: {{ section.settings.slider_items_mob }}
+      }
+    }
+  ]
   });
   });
 </script>
 
 {% comment %} Перевіримо чи взагалі працює наш сайт {% endcomment %}
 <style>
-  body {
-    background-color: azure !important;
-  }
-</style>
 
-{% schema %}
-  {
-    "name": "Slider Products",
-    "tag": "section",
-    "class": "section",
-    "settings": [
-      {
-        "type": "range",
-        "id": "slider_items",
-        "min": 1,
-        "max": 5,
-        "step": 1,
-        "label": "Items per page",
-        "default": 2
-      }, {
-        "type": "checkbox",
-        "id": "include_margins",
-        "default": true,
-        "label": "t:sections.apps.settings.include_margins.label"
-      }
-    ],
-    "blocks": [
-      {
-        "name": "Proposal product",
-        "type": "product",
-        "settings": [
-          {
-            "type": "product",
-            "id": "proposal_product",
-            "label": "My proposal Product"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Slider Products"
-      }
-    ]
-  }
-{% endschema %}
+
+/*
+   body {
+   background-color: azure !important;
+   }
+*/</style>{% schema %}
+{
+  "name": "Slider Products",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "slider_items",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "label": "Items per page",
+      "default": 4
+    }, {
+      "type": "range",
+      "id": "slider_items_tab",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Items per page",
+      "default": 2
+    }, {
+      "type": "range",
+      "id": "slider_items_mob",
+      "min": 1,
+      "max": 2,
+      "step": 1,
+      "label": "Items per page",
+      "default": 1
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Proposal product",
+      "type": "product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "proposal_product",
+          "label": "My proposal Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slider Products"
+    }
+  ]
+}{% endschema %}
