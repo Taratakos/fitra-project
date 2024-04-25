@@ -1,10 +1,9 @@
 {% if section.blocks.size > 0 %}
-
   <div class="slider-product-proposal">
     <div class="page-width slider-product-proposal__container">
       <div class="slider-product-proposal__content">
-        <h2 class="slider-product-proposal__title">Product title</h2>
-        <div class="slider-product-proposal__subtitle">Product subtitle</div>
+        <h2 class="slider-product-proposal__title">Produt title</h2>
+        <div class="slider-product-proposal__subtitle">Produt subtitle</div>
       </div>
       <div class="slider-product-proposal__slider">
         <div class="slider-product-proposal__slider-list">
@@ -12,125 +11,107 @@
             {% if block.settings.proposal_product != blank %}
               {% assign product = block.settings.proposal_product %}
               <div class="slider-product-proposal__slider-item">
-                <a class="slider-item__link" href="{{ product.url }}">
-                  <div class="slider-item__image">
-                    <img
-                      class="slider-item__picture"
-                      src="{{ product.featured_image | img_url: '200x' }}"
-                      alt="{{ product.featured_image.alt |  default: product.title }}"
-                      loading="lazy">
+                <a href="{{ product.url }}" class="slider-item__link"></a>
+                <div class="slider-item__image">
+                  <img
+                    src="{{ product.featured_image | img_url: '200x' }}"
+                    alt="{{ product.featured_image.alt | default: product.title  }}"
+                    class="slider-item__picture"
+                    loading="lazy">
+                </div>
+                <h4 class="slider-item__title">{{ product.title }}</h4>
+                {% if product.content != blank %}
+                  <div class="slider-item__content">
+                    {{ product.content | truncate: 120, "..." }}
                   </div>
-                  <h4 class="slider-item__title">{{ product.title }}</h4>
-                  {% if product.content != blank %}
-                    <div class="slider-item__content">
-                      {{ product.content | truncate: 50, "..." }}
-                    </div>
-                  {% endif %}
-                  <div class="slider-item__price">
-                    {{ product.price | money_with_currency }}
-                  </div>
-                </a>
-
+                {% endif %}
+                <div class="slider-item__price">
+                  {{ product.price | money_with_currency }}
+                </div>
               </div>
             {% endif %}
           {% endfor %}
         </div>
       </div>
+      <div class="slider-product-proposal__control">
+        <button type="button" class="slick-arrow slick-prev arrow-control control-prev">Previous</button>
+        <button type="button" class="slick-arrow slick-next arrow-control control-next">Next</button>
+      </div>
     </div>
   </div>
-
 {% endif %}
-
-
 {{ 'slick.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'jquery-3.7.1.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
-
 <script>
-  // дозволяє запускати скрипти тоді, коли загрузився документ
   document.addEventListener("DOMContentLoaded", function() {
-  $('#shopify-section-{{section.id}} .slider-product-proposal__slider-list').slick({
-  infinite: true,
-  slidesToShow: {{ section.settings.slider_items }},
-  slidesToScroll: 2,
-  speed: 1000,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: {{ section.settings.slider_items_tab}},
-        slidesToScroll: {{ section.settings.slider_items_tab}}
-      }
-    },
-    {
-      breakpoint: 576,
-      settings: {
-        slidesToShow: {{ section.settings.slider_items_mob }},
-        slidesToScroll: {{ section.settings.slider_items_mob }}
-      }
-    }
-  ]
-  });
-  });
-</script>
-
-{% comment %} Перевіримо чи взагалі працює наш сайт {% endcomment %}
-<style>
-
-
-/*
-
-   body { 
-   background-color: azure !important; 
-   } 
-*/</style>{% schema %}
-{
-  "name": "Slider Products",
-  "tag": "section",
-  "class": "section",
-  "settings": [
-    {
-      "type": "range",
-      "id": "slider_items",
-      "min": 1,
-      "max": 5,
-      "step": 1,
-      "label": "Items per page",
-      "default": 4
-    }, {
-      "type": "range",
-      "id": "slider_items_tab",
-      "min": 1,
-      "max": 5,
-      "step": 1,
-      "label": "Items per page",
-      "default": 2
-    }, {
-      "type": "range",
-      "id": "slider_items_mob",
-      "min": 1,
-      "max": 5,
-      "step": 1,
-      "label": "Items per page",
-      "default": 1
-    }
-  ],
-  "blocks": [
-    {
-      "name": "Proposal product",
-      "type": "product",
-      "settings": [
+    $('#shopify-section-{{section.id}} .slider-product-proposal__slider-list').slick({
+      infinite: true,
+      slidesToShow: {{ section.settings.slider_items }},
+      slidesToScroll: 2,
+      speed: 1000,
+      prevArrow: $('#shopify-section-{{section.id}} .control-prev'),
+      nextArrow: $('#shopify-section-{{section.id}} .control-next'),
+      responsive: [
         {
-          "type": "product",
-          "id": "proposal_product",
-          "label": "My proposal Product"
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: {{ section.settings.slider_items_tab }},
+            slidesToScroll: {{ section.settings.slider_items_tab }}
+          }
+        },
+        {
+          breakpoint: 576,
+          settings: {
+            slidesToShow:  1,
+            slidesToScroll: 1
+          }
         }
       ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Slider Products"
-    }
-  ]
-}{% endschema %}
+    });
+  });
+</script>
+{% schema %}
+  {
+    "name": "Slider Products",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "range",
+        "id": "slider_items",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "label": "Items per page",
+        "default": 4
+      }, {
+        "type": "range",
+        "id": "slider_items_tab",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "label": "Items per page",
+        "default": 2
+      }
+    ],
+    "blocks": [
+      {
+        "type": "product",
+        "name": "Proposal product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "proposal_product",
+            "label": "Our proposal Product"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Slider Products"
+      }
+    ]
+  }
+{% endschema %}
