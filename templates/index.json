@@ -123,6 +123,7 @@
     "image_get_links_aeqwJi": {
       "type": "image-get-links",
       "settings": {
+        "get_image_v_1": "shopify:\/\/shop_images\/northern-forest.jpg"
       }
     }
   },
