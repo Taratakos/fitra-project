@@ -1,5 +1,10 @@
 {
   "sections": {
+    "product_object_NUJzqm": {
+      "type": "product-object",
+      "settings": {
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -79,6 +84,7 @@
     },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
@@ -97,6 +103,7 @@
     }
   },
   "order": [
+    "product_object_NUJzqm",
     "main",
     "related-products"
   ]
