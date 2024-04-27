@@ -1,8 +1,46 @@
+<div style="border: 1px solid orange; padding: 50px">
+  {% comment %} {{ product | json }} {% endcomment %}
+  <div>
+    product.title - string - {{ product.title }}
+  </div>
+  <div>
+    product.id {{ product.id }}
+  </div>
+  <div>product.tags - array [{{ product.tags | join: ',' }}]</div>
+  <div>product.availble - boolean {{ product.available }}</div>
+  <div>product.featured_image - obj {{ product.featured_image }}</div>
+  <div>product.featured_image.id - obj {{ product.featured_image.id }}</div>
+  {% comment %} <div>product.variants - array with object - {{ product.variants | json }}</div> {% endcomment %}
+  <div>product.variants.size - array element quant  = {{ product.variants.size }}</div>
+  <div>product.variants ... ({{ product.variants[0].title }} == {{ product.variants[0].id }})</div>
+  <div>product.variants ... ({{ product.variants[2].title }} == {{ product.variants[2].id }})</div>
+  <div>
+    {% if product.variants.size > 0 %}
+      <ul>
+        {% for variant in product.variants %}
+          <li>
+            {{ variant.title }} == {{ variant.id }}
+            Variant options
+            <ol>
+              {% for option in variant.options %}
+                <li>{{ option }}</li>
+              {% endfor %}
+            </ol>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+  <div>product.variants ... {{ product.variants.title }}</div>
+  <div>product.variants ... {{ product.variants.url }}</div>
+  <div>product.variants ... {{ product.variants.product }}</div>
+  <div>product.</div>
+</div>
 {% schema %}
   {
     "name": "Product object",
     "tag": "section",
-    "class": "section",
+    "class": "section product-object-section",
     "settings": [],
 
     "presets": [
