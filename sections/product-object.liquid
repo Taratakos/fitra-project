@@ -4,16 +4,16 @@
     product.title - string - {{ product.title }}
   </div>
   <div>
-    product.id {{ product.id }}
-  </div>
+    product.id- number -{{ product.id }}</div>
   <div>product.tags - array [{{ product.tags | join: ',' }}]</div>
+  <div>product.collections - string [{{ product.collections | json }}]</div>
   <div>product.availble - boolean {{ product.available }}</div>
   <div>product.featured_image - obj {{ product.featured_image }}</div>
   <div>product.featured_image.id - obj {{ product.featured_image.id }}</div>
   {% comment %} <div>product.variants - array with object - {{ product.variants | json }}</div> {% endcomment %}
   <div>product.variants.size - array element quant  = {{ product.variants.size }}</div>
-  <div>product.variants ... ({{ product.variants[0].title }} == {{ product.variants[0].id }})</div>
-  <div>product.variants ... ({{ product.variants[2].title }} == {{ product.variants[2].id }})</div>
+  <div>product.variants first-el ({{ product.variants[0].title }} == {{ product.variants[0].id }})</div>
+  <div>product.variants last-el ({{ product.variants[5].title }} == {{ product.variants[2].id }})</div>
   <div>
     {% if product.variants.size > 0 %}
       <ul>
@@ -31,17 +31,29 @@
       </ul>
     {% endif %}
   </div>
-  <div>product.variants ... {{ product.variants.title }}</div>
-  <div>product.variants ... {{ product.variants.url }}</div>
-  <div>product.variants ... {{ product.variants.product }}</div>
-  <div>product.</div>
+  <div>
+    {% if section.settings.collection != blank %}
+      {% comment %} на сорінці продукту ми пробуємо витягти collection. На потрібно привязати collection до нашого об'єкту {% endcomment %}
+      {% assign collection = section.settings.collection %}
+      <h2>{{ collection.title }}</h2>
+      Product count  collection.all_products_count = ({{ collection.all_products_count }}) 
+      Product count  collection.product.size = ({{ collection.products.size }})
+    {% endif %}
+  </div>
 </div>
 {% schema %}
   {
     "name": "Product object",
     "tag": "section",
     "class": "section product-object-section",
-    "settings": [],
+    "settings": [
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection"
+      }
+
+    ],
 
     "presets": [
       {
