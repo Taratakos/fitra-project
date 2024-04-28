@@ -3,6 +3,7 @@
     "product_object_NUJzqm": {
       "type": "product-object",
       "settings": {
+        "collection": "with-sale"
       }
     },
     "main": {
