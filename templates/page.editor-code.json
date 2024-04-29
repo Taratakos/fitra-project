@@ -13,19 +13,20 @@
         "heading_mnJM3t": {
           "type": "heading",
           "settings": {
-            "heading": "Subscribe to our emails for the editor code",
+            "heading": "Subscribe to our emails for the <strong>Editor Code<\/strong>",
             "heading_size": "h1"
           }
         },
         "paragraph_MXeQEy": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Be the first to know about new collections and exclusive offers.</p>"
+            "text": "<p>Be the first to know about new collections and exclusive offers.<\/p>"
           }
         },
         "email_form_Gfwmam": {
           "type": "email_form",
-          "settings": {}
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -41,5 +42,8 @@
       }
     }
   },
-  "order": ["main", "newsletter_bd6iCc"]
+  "order": [
+    "main",
+    "newsletter_bd6iCc"
+  ]
 }
