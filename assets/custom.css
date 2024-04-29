@@ -5,7 +5,7 @@
 .arrow-control {
   position: absolute;
   display: block;
-  top: 150px;
+  top: 0;
   transform: translateY(-50%);
   height: 50px;
   width: 50px;
@@ -42,7 +42,7 @@
 
 .slick-slider .slick-prev,
 .control-prev {
-  left: -25px;
+  left: -50px;
 }
 
 .slick-slider .slick-prev::before,
@@ -52,7 +52,7 @@
 
 .slick-slider .slick-next,
 .control-next {
-  right: -25px;
+  right: -50px;
 }
 
 .slick-slider .slick-next::before,
