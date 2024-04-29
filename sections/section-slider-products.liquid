@@ -9,6 +9,7 @@
         <div class="slider-product-proposal__slider-list">
           {% for block in section.blocks %}
             {% if block.settings.proposal_product != blank %}
+              {% comment %} Проіменували зміну як продукт, привязали обєкт блоку до product {% endcomment %}
               {% assign product = block.settings.proposal_product %}
               <div class="slider-product-proposal__slider-item">
                 <a href="{{ product.url }}" class="slider-item__link"></a>
@@ -28,6 +29,24 @@
                 <div class="slider-item__price">
                   {{ product.price | money_with_currency }}
                 </div>
+                {% comment %} Далі працюємо зі значеннями product, як на звичайній сторінці product. Ми просто всатавили кусок коду і він працює, тому що ми використовуємо product {% endcomment %}
+                {% comment %} <div class="product-sample">
+                  {% if product.variants.size > 0 %}
+                    <ul>
+                      {% for variant in product.variants %}
+                        <li>
+                          {{ variant.title }} == {{ variant.id }}
+                          Variant options
+                          <ol>
+                            {% for option in variant.options %}
+                              <li>{{ option }}</li>
+                            {% endfor %}
+                          </ol>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </div> {% endcomment %}
               </div>
             {% endif %}
           {% endfor %}
