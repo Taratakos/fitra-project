@@ -15,9 +15,9 @@
   <div>product.variants[0].title first-el ({{ product.variants[0].title }} == {{ product.variants[0].id }})</div>
   <div>product.variants[5].title ({{ product.variants[5].title }} == {{ product.variants[2].id }})</div>
   <div>product.price | money {{ product.price | money }}</div>
-  <script>
+  {% comment %} <script>
       console.log({{ product.price }});
-  </script>
+  </script> {% endcomment %}
   <div class="product-variant">
     {% if product.variants.size > 0 %}
       <ul>
