@@ -244,3 +244,5 @@ if (!customElements.get('cart-note')) {
     }
   );
 }
+
+console.log('test');
