@@ -161,6 +161,38 @@
           "padding_top": 40,
           "padding_bottom": 52
         }
+      },
+      "rich-text-copy": {
+        "type": "rich-text-copy",
+        "blocks": {
+          "heading_7X3Trr": {
+            "type": "heading",
+            "settings": {
+              "heading": "Talk about your brand 4",
+              "heading_size": "h1"
+            }
+          },
+          "caption_tP4KaK": {
+            "type": "caption",
+            "settings": {
+              "caption": "Add a tagline",
+              "text_style": "caption-with-letter-spacing",
+              "text_size": "medium"
+            }
+          }
+        },
+        "block_order": [
+          "heading_7X3Trr",
+          "caption_tP4KaK"
+        ],
+        "settings": {
+          "desktop_content_position": "center",
+          "content_alignment": "center",
+          "color_scheme": "",
+          "full_width": true,
+          "padding_top": 40,
+          "padding_bottom": 52
+        }
       }
     },
     "content_for_index": [
