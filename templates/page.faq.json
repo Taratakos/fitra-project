@@ -121,12 +121,48 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "rich-faq-text": {
+      "type": "rich-text-copy",
+      "blocks": {
+        "heading_dCNh8R": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about <strong>FOR FAQ<\/strong>",
+            "heading_size": "h1"
+          }
+        },
+        "button_NxtXTU": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify:\/\/collections",
+            "button_style_secondary": false,
+            "button_label_2": "TRY NOW",
+            "button_link_2": "shopify:\/\/pages\/contact",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_dCNh8R",
+        "button_NxtXTU"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "main",
     "newsletter_FxjMa7",
     "slideshow_mLm6My",
-    "featured_collection_rnRDQz"
+    "featured_collection_rnRDQz",
+    "rich-faq-text"
   ]
 }
