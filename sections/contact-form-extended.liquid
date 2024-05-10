@@ -14,6 +14,46 @@
       <input type="textarea" name="contact[body]">
     </label>
     <br>
+    <label for="request-type">What is this regarding?</label>
+    <select id="request-type" name="contact[request_type]">
+      <option>Returns</option>
+      <option>Shipping</option>
+      <option>Custom order</option>
+      <option>Other</option>
+    </select>
+    <br>
+    <label for="contact-method">How do you want us to contact you?</label>
+    <input
+      type="radio"
+      name="contact[contact_method]"
+      value="email"
+      id="email"><label for="email">Email</label><br>
+    <input
+      type="radio"
+      name="contact[contact_method]"
+      value="phone"
+      id="phone"><label for="phone">Phone</label><br>
+    <input
+      type="radio"
+      name="contact[contact_method]"
+      value="text message"
+      id="text"><label for="text">Text message</label>
+    <br>
+    <label for="contact-time">When is the best time to reach you?</label>
+    <input
+      type="checkbox"
+      name="contact[contact_time_1]"
+      value="morning"><label for="morning">Morning</label><br>
+    <input
+      type="checkbox"
+      name="contact[contact_time_2]"
+      value="afternoon"><label for="afternoon">Afternoon</label><br>
+    <input
+      type="checkbox"
+      name="contact[contact_time_3]"
+      value="evening"><label for="evening">Evening
+    </label>
+    <br>
     <button type="submit">SEND</button>
     {{ form.errors | default_errors }}
   {% endform %}
