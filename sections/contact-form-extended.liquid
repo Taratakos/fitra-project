@@ -1,0 +1,21 @@
+<div class="page-width">
+  <h2>Title Contact form Extended</h2>
+
+  {% form 'contact' %}
+    <input type="email" name="contact[email]">
+    {{ form.errors | default_errors }}
+  {% endform %}
+</div>
+
+{% schema %}
+  {
+    "name": "Contact form Extd",
+    "tag": "section",
+    "class": "section contact-form-extended",
+    "presets": [
+      {
+        "name": "Contact form Extend"
+      }
+    ]
+  }
+{% endschema %}
