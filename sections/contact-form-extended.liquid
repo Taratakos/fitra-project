@@ -2,7 +2,19 @@
   <h2>Title Contact form Extended</h2>
 
   {% form 'contact' %}
-    <input type="email" name="contact[email]">
+    <label for="contact[email]">
+      Email
+      <input type="email" name="contact[email]">
+    </label>
+    <br>
+
+    {% comment %} input type="textarea" is optional {% endcomment %}
+    <label for="contact[body]">
+      Text
+      <input type="textarea" name="contact[body]">
+    </label>
+    <br>
+    <button type="submit">SEND</button>
     {{ form.errors | default_errors }}
   {% endform %}
 </div>

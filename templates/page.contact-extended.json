@@ -7,9 +7,15 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "contact_form_extended_Rng8Bq": {
+      "type": "contact-form-extended",
+      "settings": {
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "contact_form_extended_Rng8Bq"
   ]
 }
