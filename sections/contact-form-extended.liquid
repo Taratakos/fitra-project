@@ -1,7 +1,8 @@
 <div class="page-width">
   <h2>Title Contact form Extended</h2>
 
-  {% form 'contact' %}
+  {% form 'contact'
+    , id: 'ContactFormExtend' %}
     <label for="contact[email]">
       Email
       <input type="email" name="contact[email]">
@@ -23,6 +24,7 @@
     </select>
     <br>
     <label for="contact-method">How do you want us to contact you?</label>
+    <br>
     <input
       type="radio"
       name="contact[contact_method]"
@@ -40,6 +42,7 @@
       id="text"><label for="text">Text message</label>
     <br>
     <label for="contact-time">When is the best time to reach you?</label>
+    <br>
     <input
       type="checkbox"
       name="contact[contact_time_1]"
@@ -58,6 +61,8 @@
     {{ form.errors | default_errors }}
   {% endform %}
 </div>
+
+<script src="{{ 'contact-form-extend.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
   {
